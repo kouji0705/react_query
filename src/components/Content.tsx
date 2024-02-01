@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Result } from './hooks';
 type Props = {
-  data: any;
+  data: Result[];
 };
 
 export const Content = (data: Props) => {
@@ -8,8 +9,13 @@ export const Content = (data: Props) => {
 
   return (
     <div>
-      {/* ここでsearchQueryに基づいたコンテンツを表示 */}
-      <p>検索クエリ: </p>
+      {data.data?.map((item) => (
+        <div key={item.id}>
+          <p>{item.name}</p>
+          <p>{item.email}</p>
+          <p>{item.body}</p>
+        </div>
+      ))}
     </div>
   );
 };

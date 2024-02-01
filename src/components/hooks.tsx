@@ -11,7 +11,7 @@ export interface Result {
 }
 
 export const useSearchQuery = () => {
-  const [data, setData] = useState<Result | null>(null);
+  const [data, setData] = useState<Result[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const location = useLocation();
