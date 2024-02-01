@@ -2,22 +2,15 @@ import { useEffect, useState } from 'react';
 import Content from './Content';
 import { SearchBar } from './Header';
 import { useLocation } from 'react-router-dom';
+import { useSearchQuery } from './hooks';
 
 export const Sample = () => {
-  const location = useLocation();
-  const [searchQuery, setSearchQuery] = useState('');
+  const { data, isLoading, error } = useSearchQuery();
 
-  useEffect(() => {
-    // URLSearchParamsを使用してクエリパラメータを解析
-    const queryParams = new URLSearchParams(location.search);
-    const search = queryParams.get('search');
+  //   if (isLoading) return <div>読み込み中...</div>
+  if (error) return <div>{error}</div>;
 
-    if (search) {
-      setSearchQuery(search);
-      // ここで検索クエリに基づいて何らかの処理を実行、例えばAPIからデータをフェッチする
-      console.log(`検索クエリ: ${search}`);
-    }
-  }, [location.search]);
+  console.log('data: ', data);
 
   return (
     <div>
