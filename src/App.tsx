@@ -1,13 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { SearchBar } from './components/Header';
-import { Content } from './components/Content';
+import { Sample } from './components';
 
 function App() {
   return (
     <Router>
-      <SearchBar />
-      <Content />
+      <Sample />
     </Router>
   );
 }

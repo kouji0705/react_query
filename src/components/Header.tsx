@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 
-export const SearchBar: React.FC = () => {
+export const SearchBar = () => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
