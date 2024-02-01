@@ -26,10 +26,10 @@ export const useSearchQuery = () => {
       try {
         // クエリパラメータがある場合とない場合で、リクエストURLを調整
         const apiUrl = search
-          ? `https://jsonplaceholder.typicode.com/comments?search=${encodeURIComponent(
+          ? `https://jsonplaceholder.typicode.com/comments?_limit=5&search=${encodeURIComponent(
               search
             )}`
-          : 'https://jsonplaceholder.typicode.com/comments';
+          : 'https://jsonplaceholder.typicode.com/comments?_limit=5';
         const response = await axios.get(apiUrl);
         setData(response.data);
       } catch (error) {
