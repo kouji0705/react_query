@@ -5,8 +5,6 @@ type Props = {
 };
 
 export const Content = (data: Props) => {
-  console.log('data: ', data);
-
   return (
     <div>
       {data.data?.map((item) => (
