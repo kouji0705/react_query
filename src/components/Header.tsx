@@ -10,9 +10,9 @@ export const SearchBar = () => {
     // ユーザーの入力があるたびにURLのクエリパラメータを更新
     const params = new URLSearchParams();
     if (query) {
-      params.append('search', query);
+      params.append('id', query);
     } else {
-      params.delete('search');
+      params.delete('id');
     }
     navigate(`?${params.toString()}`, { replace: true });
   }, [query, navigate]);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Result } from './hooks';
 type Props = {
   data: Result[];
@@ -19,5 +19,3 @@ export const Content = (data: Props) => {
     </div>
   );
 };
-
-export default Content;

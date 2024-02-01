@@ -21,12 +21,12 @@ export const useSearchQuery = () => {
       setIsLoading(true);
       // URLSearchParamsを使用してクエリパラメータを解析
       const queryParams = new URLSearchParams(location.search);
-      const search = queryParams.get('search') || ''; // クエリがない場合はデフォルト値（空文字）を使用
+      const search = queryParams.get('id') || ''; // クエリがない場合はデフォルト値（空文字）を使用
 
       try {
         // クエリパラメータがある場合とない場合で、リクエストURLを調整
         const apiUrl = search
-          ? `https://jsonplaceholder.typicode.com/comments?_limit=5&search=${encodeURIComponent(
+          ? `https://jsonplaceholder.typicode.com/comments?_limit=5&id=${encodeURIComponent(
               search
             )}`
           : 'https://jsonplaceholder.typicode.com/comments?_limit=5';
