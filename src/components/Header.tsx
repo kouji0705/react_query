@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 
 export const SearchBar: React.FC = () => {
   const [query, setQuery] = useState('');
-  const navigate = useNavigate(); // useNavigateフックを使用
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    navigate(`?search=${encodeURIComponent(query)}`);
-  };
+  useEffect(() => {
+    // ユーザーの入力があるたびにURLのクエリパラメータを更新
+    const params = new URLSearchParams();
+    if (query) {
+      params.append('search', query);
+    } else {
+      params.delete('search');
+    }
+    navigate(`?${params.toString()}`, { replace: true });
+  }, [query, navigate]);
 
   return (
-    <Button onClick={handleSearch}>
-      <TextField
-        label="検索"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-    </Button>
+    <TextField
+      label="検索"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
   );
 };
