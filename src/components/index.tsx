@@ -8,7 +8,7 @@ export const Sample = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div style={{ margin: '16px' }}>
       <SearchBar />
       <Content data={data} />
     </div>
